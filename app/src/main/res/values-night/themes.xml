@@ -2,6 +2,21 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Calculadora" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="android:windowBackground">@color/black</item>
+
+        <!-- Colores personalizados para la calculadora -->
+        <item name="backgroundColor">@color/black</item>
+        <item name="displayBackgroundColor">@color/display_background_dark</item>
+        <item name="operationTextColor">@color/operation_text_dark</item>
+        <item name="resultTextColor">@color/result_text_dark</item>
+
+        <!-- Redefine los estilos de botones para modo oscuro -->
+        <item name="calculatorNumberButtonStyle">@style/CalculatorNumberButton.Dark</item>
+        <item name="calculatorOperationButtonStyle">@style/CalculatorOperationButton.Dark</item>
+        <item name="calculatorFunctionButtonStyle">@style/CalculatorFunctionButton.Dark</item>
+        <item name="calculatorEqualsButtonStyle">@style/CalculatorEqualsButton.Dark</item>
     </style>
 </resources>

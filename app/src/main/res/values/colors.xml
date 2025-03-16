@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Colores base -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Colores para el tema claro -->
+    <color name="primary">#FF6200EE</color>
+    <color name="primary_variant">#FF3700B3</color>
+    <color name="secondary">#FF03DAC5</color>
+    <color name="background">#FFFAFAFA</color>
+
+    <!-- Colores de display -->
+    <color name="display_background_light">#FFFFFFFF</color>
+    <color name="display_background_dark">#FF1D1D1D</color>
+    <color name="operation_text_light">#757575</color>
+    <color name="operation_text_dark">#CCCCCC</color>
+    <color name="result_text_light">#212121</color>
+    <color name="result_text_dark">#FFFFFF</color>
+
+    <!-- Colores de botones -->
+    <!-- Botones numéricos -->
+    <color name="number_button_background">#FFF0F0F0</color>
+    <color name="number_button_text">#FF212121</color>
+    <color name="number_button_ripple">#20000000</color>
+
+    <!-- Botones de operación -->
+    <color name="operation_button_background">#FFE3F2FD</color>
+    <color name="operation_button_text">#FF1976D2</color>
+    <color name="operation_button_ripple">#201976D2</color>
+
+    <!-- Botones de función -->
+    <color name="function_button_background">#FFECEFF1</color>
+    <color name="function_button_text">#FF607D8B</color>
+    <color name="function_button_ripple">#20607D8B</color>
+
+    <!-- Botón igual -->
+    <color name="equals_button_background">#FF1976D2</color>
+    <color name="equals_button_text">#FFFFFFFF</color>
+    <color name="equals_button_ripple">#50FFFFFF</color>
+
+    <!-- Colores para tema oscuro -->
+    <color name="number_button_background_dark">#FF333333</color>
+    <color name="number_button_text_dark">#FFFFFFFF</color>
+    <color name="number_button_ripple_dark">#40FFFFFF</color>
+
+    <color name="operation_button_background_dark">#FF1A237E</color>
+    <color name="operation_button_text_dark">#FFFFFFFF</color>
+    <color name="operation_button_ripple_dark">#40FFFFFF</color>
+
+    <color name="function_button_background_dark">#FF424242</color>
+    <color name="function_button_text_dark">#FFBBDEFB</color>
+    <color name="function_button_ripple_dark">#40FFFFFF</color>
+
+    <color name="equals_button_background_dark">#FF2196F3</color>
+    <color name="equals_button_text_dark">#FFFFFFFF</color>
+    <color name="equals_button_ripple_dark">#50FFFFFF</color>
 </resources>

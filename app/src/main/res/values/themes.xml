@@ -2,7 +2,16 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Calculadora" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="android:windowBackground">@color/background</item>
+
+        <!-- Colores personalizados para la calculadora -->
+        <item name="backgroundColor">@color/background</item>
+        <item name="displayBackgroundColor">@color/display_background_light</item>
+        <item name="operationTextColor">@color/operation_text_light</item>
+        <item name="resultTextColor">@color/result_text_light</item>
     </style>
 
     <style name="Theme.Calculadora" parent="Base.Theme.Calculadora" />

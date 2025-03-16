@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Atributos para temas personalizados -->
+    <attr name="backgroundColor" format="color" />
+    <attr name="displayBackgroundColor" format="color" />
+    <attr name="operationTextColor" format="color" />
+    <attr name="resultTextColor" format="color" />
+
+    <!-- Atributos para referenciar estilos de botones -->
+    <attr name="calculatorNumberButtonStyle" format="reference" />
+    <attr name="calculatorOperationButtonStyle" format="reference" />
+    <attr name="calculatorFunctionButtonStyle" format="reference" />
+    <attr name="calculatorEqualsButtonStyle" format="reference" />
+</resources>

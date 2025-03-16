@@ -245,7 +245,7 @@
         android:text="4" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn5"
+        android:id="@id/btn5"
         style="@style/CalculatorNumberButton"
         android:layout_width="0dp"
         android:layout_height="0dp"

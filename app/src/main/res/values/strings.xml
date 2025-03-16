@@ -3,4 +3,5 @@
     <string name="standard">Standard</string>
     <string name="scientific">Cientifica</string>
     <string name="programmer">Programador</string>
+    <string name="dark_mode">Modo Oscuro</string>
 </resources>

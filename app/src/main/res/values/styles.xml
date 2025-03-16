@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Estilos base para todos los botones de la calculadora -->
+    <style name="CalculatorButton" parent="Widget.Material3.Button">
+        <item name="android:layout_margin">4dp</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <!-- Estilo para botones numéricos -->
+    <style name="CalculatorNumberButton" parent="CalculatorButton">
+        <item name="backgroundTint">@color/number_button_background</item>
+        <item name="android:textColor">@color/number_button_text</item>
+        <item name="rippleColor">@color/number_button_ripple</item>
+    </style>
+
+    <!-- Estilo para botones de operaciones -->
+    <style name="CalculatorOperationButton" parent="CalculatorButton">
+        <item name="backgroundTint">@color/operation_button_background</item>
+        <item name="android:textColor">@color/operation_button_text</item>
+        <item name="rippleColor">@color/operation_button_ripple</item>
+        <item name="iconTint">@color/operation_button_text</item>
+    </style>
+
+    <!-- Estilo para botones de funciones -->
+    <style name="CalculatorFunctionButton" parent="CalculatorButton">
+        <item name="backgroundTint">@color/function_button_background</item>
+        <item name="android:textColor">@color/function_button_text</item>
+        <item name="rippleColor">@color/function_button_ripple</item>
+    </style>
+
+    <!-- Estilo para el botón igual -->
+    <style name="CalculatorEqualsButton" parent="CalculatorButton">
+        <item name="backgroundTint">@color/equals_button_background</item>
+        <item name="android:textColor">@color/equals_button_text</item>
+        <item name="rippleColor">@color/equals_button_ripple</item>
+    </style>
+    <!-- Estilos para botones en modo oscuro -->
+    <style name="CalculatorNumberButton.Dark" parent="CalculatorNumberButton">
+        <item name="backgroundTint">@color/number_button_background_dark</item>
+        <item name="android:textColor">@color/number_button_text_dark</item>
+        <item name="rippleColor">@color/number_button_ripple_dark</item>
+    </style>
+
+    <style name="CalculatorOperationButton.Dark" parent="CalculatorOperationButton">
+        <item name="backgroundTint">@color/operation_button_background_dark</item>
+        <item name="android:textColor">@color/operation_button_text_dark</item>
+        <item name="rippleColor">@color/operation_button_ripple_dark</item>
+        <item name="iconTint">@color/operation_button_text_dark</item>
+    </style>
+
+    <style name="CalculatorFunctionButton.Dark" parent="CalculatorFunctionButton">
+        <item name="backgroundTint">@color/function_button_background_dark</item>
+        <item name="android:textColor">@color/function_button_text_dark</item>
+        <item name="rippleColor">@color/function_button_ripple_dark</item>
+    </style>
+
+    <style name="CalculatorEqualsButton.Dark" parent="CalculatorEqualsButton">
+        <item name="backgroundTint">@color/equals_button_background_dark</item>
+        <item name="android:textColor">@color/equals_button_text_dark</item>
+        <item name="rippleColor">@color/equals_button_ripple_dark</item>
+    </style>
+</resources>
