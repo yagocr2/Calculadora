@@ -8,12 +8,8 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -23,8 +19,13 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager2 viewPager;
@@ -175,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
     public static class StandardCalculatorFragment extends Fragment {
         @Override
         public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.activity_standard, container, false);
+            View view = inflater.inflate(R.layout.fragment_standard, container, false);
             setupButtons(view);
             return view;
         }
@@ -218,7 +219,10 @@ public class MainActivity extends AppCompatActivity {
             btnPercent.setOnClickListener(v -> activity.onFunctionClick("%"));
 
             Button btnParentheses = view.findViewById(R.id.btnParentheses);
-            btnParentheses.setOnClickListener(v -> activity.onParenthesisClick());
+            btnParentheses.setOnClickListener(v -> {
+                activity.onParenthesisClick();
+                activity.updateDisplay();
+            });
         }
     }
 
@@ -226,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
     public static class ScientificCalculatorFragment extends Fragment {
         @Override
         public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.activity_cientifica, container, false);
+            View view = inflater.inflate(R.layout.fragment_cientifica, container, false);
             setupButtons(view);
             return view;
         }
@@ -297,7 +301,10 @@ public class MainActivity extends AppCompatActivity {
 
             Button btnParenOpen = view.findViewById(R.id.btnParenOpen);
             if (btnParenOpen != null) {
-                btnParenOpen.setOnClickListener(v -> activity.onFunctionClick("("));
+                btnParenOpen.setOnClickListener(v -> {
+                    activity.calculatorLogic.appendParenthesis();
+                    activity.updateDisplay();
+                });
             }
 
             Button btnParenClose = view.findViewById(R.id.btnParenClose);
@@ -308,7 +315,10 @@ public class MainActivity extends AppCompatActivity {
             // Setup memory buttons
             Button btnMemoryStore = view.findViewById(R.id.btnMemoryStore);
             if (btnMemoryStore != null) {
-                btnMemoryStore.setOnClickListener(v -> activity.onMemoryAction("MS"));
+                btnParenClose.setOnClickListener(v -> {
+                    activity.calculatorLogic.appendParenthesis();
+                    activity.updateDisplay();
+                });
             }
 
             Button btnMemoryRecall = view.findViewById(R.id.btnMemoryRecall);
@@ -333,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
     public static class ProgrammerCalculatorFragment extends Fragment {
         @Override
         public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.activity_programador, container, false);
+            View view = inflater.inflate(R.layout.fragment_programador, container, false);
             setupButtons(view);
             return view;
         }
@@ -403,8 +413,168 @@ public class MainActivity extends AppCompatActivity {
                         enableHexButtons(view, true);
                     } else if (checkedId == R.id.radioDec) {
                         activity.onBaseChange(10);
+                        enableHexButtons(view, false);
+                    } else if (checkedId == R.id.radioOct) {
+                        activity.onBaseChange(8);
+                        enableHexButtons(view, false);
+                    } else if (checkedId == R.id.radioBin) {
+                        activity.onBaseChange(2);
+                        enableHexButtons(view, false);
                     }
                 });
+
+            }
+        }
+        private int currentBase;
+        private void syncBaseWithLogic() {
+            MainActivity activity = (MainActivity) requireActivity();
+            this.currentBase = activity.calculatorLogic.getCurrentBase();
+        }
+        private void enableHexButtons(View view, boolean enable) {
+            // Habilitar/deshabilitar botones A-F
+            for (char c = 'A'; c <= 'F'; c++) {
+                int buttonId = getResources().getIdentifier("btn" + c, "id", requireContext().getPackageName());
+                Button hexButton = view.findViewById(buttonId);
+
+                if (hexButton != null) {
+                    hexButton.setEnabled(enable);
+                    // Cambiar apariencia según estado
+                    hexButton.setAlpha(enable ? 1.0f : 0.5f);
+                }
+            }
+
+            // Actualizar botones numéricas según la base
+            int[] digitButtons = {R.id.btn8, R.id.btn9};
+            for (int id : digitButtons) {
+                Button btn = view.findViewById(id);
+                if (btn != null) {
+                    btn.setEnabled(currentBase > 8);
+                    btn.setAlpha(currentBase > 8 ? 1.0f : 0.5f);
+                }
+            }
+        }
+    }
+    public class CalculatorLogic {
+        private String currentOperation = "";
+        private String currentResult = "0";
+        private int calculatorMode = 0; // 0: Standard, 1: Scientific, 2: Programmer
+        private int currentBase = 10;
+        private boolean isRadians = true;
+        private double memoryValue = 0;
+
+        public void appendDecimal() {
+            if (!currentResult.contains(".")) {
+                currentResult += ".";
+            }
+        }
+        public void appendParenthesis() {
+            // Lógica para balancear paréntesis
+            // Contar paréntesis existentes para balancear
+            long openCount = currentOperation.chars().filter(ch -> ch == '(').count();
+            long closeCount = currentOperation.chars().filter(ch -> ch == ')').count();
+
+            if (openCount == closeCount) {
+                currentResult += "(";
+            } else {
+                currentResult += ")";
+            }
+
+            updateDisplay();
+        }
+        public void appendNumber(String number) {
+            if (calculatorMode == 2 && !isValidForBase(number)) return;
+
+            if (currentResult.equals("0") && !number.equals(".")) {
+                currentResult = number;
+            } else {
+                currentResult += number;
+            }
+        }
+
+        public void applyOperator(String operator) {
+            // Si hay un paréntesis abierto, no limpiar la operación
+            if (currentOperation.replaceAll("[^(]", "").length() >
+                    currentOperation.replaceAll("[^)]", "").length()) {
+                currentOperation += currentResult + " " + operator + " ";
+            } else {
+                if (!currentOperation.isEmpty()) {
+                    calculate();
+                }
+                currentOperation = currentResult + " " + operator + " ";
+            }
+            currentResult = "0";
+        }
+
+        public void calculate() {
+            try {
+                // Evaluar expresión con paréntesis
+                ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
+                String expression = currentOperation.replaceAll("[×]", "*")
+                        .replaceAll("[÷]", "/")
+                        + currentResult;
+
+                double result = (Double) engine.eval(expression);
+                currentResult = String.valueOf(result);
+                currentOperation = "";
+            } catch (Exception e) {
+                currentResult = "Error";
+            }
+        }
+
+        public void applyFunction(String function) {
+            try {
+                double value = Double.parseDouble(currentResult);
+                switch (function) {
+                    case "sin":
+                        value = isRadians ? Math.sin(value) : Math.sin(Math.toRadians(value));
+                        break;
+                    case "cos":
+                        value = isRadians ? Math.cos(value) : Math.cos(Math.toRadians(value));
+                        break;
+                    case "tan":
+                        value = isRadians ? Math.tan(value) : Math.tan(Math.toRadians(value));
+                        break;
+                    case "ln": value = Math.log(value); break;
+                    case "log": value = Math.log10(value); break;
+                    case "sqrt": value = Math.sqrt(value); break;
+                    case "!": value = factorial(value); break;
+                }
+                currentResult = String.valueOf(value);
+            } catch (Exception e) {
+                currentResult = "Error";
+            }
+        }
+
+        private double factorial(double n) {
+            if (n == 0) return 1;
+            return n * factorial(n - 1);
+        }
+
+        public void setBase(int base) {
+            this.currentBase = base;
+            // Implementar conversión de bases aquí
+        }
+
+        public void handleMemory(String action) {
+            switch (action) {
+                case "MS": memoryValue = Double.parseDouble(currentResult); break;
+                case "MR": currentResult = String.valueOf(memoryValue); break;
+            }
+        }
+
+        // Getters y Setters
+        public String getCurrentOperation() { return currentOperation; }
+        public String getCurrentResult() { return currentResult; }
+        public void setCalculatorMode(int mode) { this.calculatorMode = mode; }
+        public int getCurrentBase() { return currentBase; }
+        public void clear() { currentOperation = ""; currentResult = "0"; }
+
+        private boolean isValidForBase(String input) {
+            try {
+                Integer.parseInt(input, currentBase);
+                return true;
+            } catch (NumberFormatException e) {
+                return false;
             }
         }
     }

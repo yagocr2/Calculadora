@@ -332,7 +332,7 @@
         android:layout_rowWeight="1"
         android:layout_column="0"
         android:layout_columnWeight="1"
-        android:text="<<" />
+        android:text="&lt;&lt;" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn0"
@@ -354,7 +354,7 @@
         android:layout_rowWeight="1"
         android:layout_column="2"
         android:layout_columnWeight="1"
-        android:text=">>" />
+        android:text="&gt;&gt;" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnEquals"
