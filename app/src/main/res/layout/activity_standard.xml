@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="4"
+    android:padding="8dp"
+    android:rowCount="5">
+
+    <!-- Fila 1 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnClear"
+        style="@style/CalculatorFunctionButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="C" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnParentheses"
+        style="@style/CalculatorFunctionButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="( )" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPercent"
+        style="@style/CalculatorFunctionButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="%" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDivide"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="÷" />
+
+    <!-- Fila 2 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn7"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="7" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn8"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="8" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn9"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="9" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMultiply"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="×" />
+
+    <!-- Fila 3 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn4"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="4" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn5"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="5" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn6"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="6" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSubtract"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="-" />
+
+    <!-- Fila 4 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn1"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn2"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn3"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAdd"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="+" />
+
+    <!-- Fila 5 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn0"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="2"
+        android:text="0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDecimal"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="." />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEquals"
+        style="@style/CalculatorEqualsButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="=" />
+
+</GridLayout>

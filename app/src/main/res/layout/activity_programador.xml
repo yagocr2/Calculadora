@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="4"
+    android:padding="8dp"
+    android:rowCount="8">
+
+    <!-- Radio buttons para seleccionar el tipo de numeración -->
+    <RadioGroup
+        android:id="@+id/radioGroupNumeralSystem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:layout_columnSpan="4"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioHex"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="HEX" />
+
+        <RadioButton
+            android:id="@+id/radioDec"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="DEC" />
+
+        <RadioButton
+            android:id="@+id/radioOct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="OCT" />
+
+        <RadioButton
+            android:id="@+id/radioBin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="BIN" />
+    </RadioGroup>
+
+    <!-- Fila 1 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnA"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="1"
+        android:layout_rowWeight="1"
+        android:layout_column="0"
+        android:layout_columnWeight="1"
+        android:enabled="false"
+        android:text="A" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnB"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="1"
+        android:layout_rowWeight="1"
+        android:layout_column="1"
+        android:layout_columnWeight="1"
+        android:enabled="false"
+        android:text="B" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnC"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="1"
+        android:layout_rowWeight="1"
+        android:layout_column="2"
+        android:layout_columnWeight="1"
+        android:enabled="false"
+        android:text="C" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnD"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="1"
+        android:layout_rowWeight="1"
+        android:layout_column="3"
+        android:layout_columnWeight="1"
+        android:enabled="false"
+        android:text="D" />
+
+    <!-- Fila 2 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnE"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="2"
+        android:layout_rowWeight="1"
+        android:layout_column="0"
+        android:layout_columnWeight="1"
+        android:enabled="false"
+        android:text="E" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnF"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="2"
+        android:layout_rowWeight="1"
+        android:layout_column="1"
+        android:layout_columnWeight="1"
+        android:enabled="false"
+        android:text="F" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAnd"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="2"
+        android:layout_rowWeight="1"
+        android:layout_column="2"
+        android:layout_columnWeight="1"
+        android:text="AND" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnOr"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="2"
+        android:layout_rowWeight="1"
+        android:layout_column="3"
+        android:layout_columnWeight="1"
+        android:text="OR" />
+
+    <!-- Fila 3 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnClear"
+        style="@style/CalculatorFunctionButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="3"
+        android:layout_rowWeight="1"
+        android:layout_column="0"
+        android:layout_columnWeight="1"
+        android:text="C" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnXor"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="3"
+        android:layout_rowWeight="1"
+        android:layout_column="1"
+        android:layout_columnWeight="1"
+        android:text="XOR" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNot"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="3"
+        android:layout_rowWeight="1"
+        android:layout_column="2"
+        android:layout_columnWeight="1"
+        android:text="NOT" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMod"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="3"
+        android:layout_rowWeight="1"
+        android:layout_column="3"
+        android:layout_columnWeight="1"
+        android:text="MOD" />
+
+    <!-- Fila 4 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn7"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="4"
+        android:layout_rowWeight="1"
+        android:layout_column="0"
+        android:layout_columnWeight="1"
+        android:text="7" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn8"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="4"
+        android:layout_rowWeight="1"
+        android:layout_column="1"
+        android:layout_columnWeight="1"
+        android:text="8" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn9"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="4"
+        android:layout_rowWeight="1"
+        android:layout_column="2"
+        android:layout_columnWeight="1"
+        android:text="9" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDivide"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="4"
+        android:layout_rowWeight="1"
+        android:layout_column="3"
+        android:layout_columnWeight="1"
+        android:text="÷" />
+
+    <!-- Fila 5 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn4"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="5"
+        android:layout_rowWeight="1"
+        android:layout_column="0"
+        android:layout_columnWeight="1"
+        android:text="4" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn5"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="5"
+        android:layout_rowWeight="1"
+        android:layout_column="1"
+        android:layout_columnWeight="1"
+        android:text="5" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn6"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="5"
+        android:layout_rowWeight="1"
+        android:layout_column="2"
+        android:layout_columnWeight="1"
+        android:text="6" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMultiply"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="5"
+        android:layout_rowWeight="1"
+        android:layout_column="3"
+        android:layout_columnWeight="1"
+        android:text="×" />
+
+    <!-- Fila 6 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn1"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="6"
+        android:layout_rowWeight="1"
+        android:layout_column="0"
+        android:layout_columnWeight="1"
+        android:text="1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn2"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="6"
+        android:layout_rowWeight="1"
+        android:layout_column="1"
+        android:layout_columnWeight="1"
+        android:text="2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn3"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="6"
+        android:layout_rowWeight="1"
+        android:layout_column="2"
+        android:layout_columnWeight="1"
+        android:text="3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSubtract"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="6"
+        android:layout_rowWeight="1"
+        android:layout_column="3"
+        android:layout_columnWeight="1"
+        android:text="-" />
+
+    <!-- Fila 7 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnShiftLeft"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="7"
+        android:layout_rowWeight="1"
+        android:layout_column="0"
+        android:layout_columnWeight="1"
+        android:text="<<" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn0"
+        style="@style/CalculatorNumberButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="7"
+        android:layout_rowWeight="1"
+        android:layout_column="1"
+        android:layout_columnWeight="1"
+        android:text="0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnShiftRight"
+        style="@style/CalculatorOperationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="7"
+        android:layout_rowWeight="1"
+        android:layout_column="2"
+        android:layout_columnWeight="1"
+        android:text=">>" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEquals"
+        style="@style/CalculatorEqualsButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="7"
+        android:layout_rowWeight="1"
+        android:layout_column="3"
+        android:layout_columnWeight="1"
+        android:text="=" />
+</GridLayout>
